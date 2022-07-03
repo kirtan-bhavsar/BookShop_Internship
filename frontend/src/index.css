@@ -1,0 +1,30 @@
+main{
+    min-height: 80vh;
+}
+
+h3{
+    padding: 1rem 0;
+}
+
+.rating span{
+    margin: 0.1rem;
+}
+
+h1{
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
+
+h2{
+    font-size: 1.4rem;
+    padding: 0.5rem 0;
+}
+
+.navbar-dark .navbar-brand{
+    color:rgba(255,255,255,0.8)
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+    margin: 10px 0px;
+}
