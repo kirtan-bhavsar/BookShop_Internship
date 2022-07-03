@@ -26,3 +26,7 @@ export default connectDB;
 
 //Check for git hub
 //Check again for git hub
+
+// git add .
+// git commit -m "message"
+//git push
