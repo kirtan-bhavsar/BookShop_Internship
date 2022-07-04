@@ -53,6 +53,11 @@ const PlaceOrderScreen = ({ history }) => {
       })
     );
   };
+  // console.log(cart.totalPrice);
+
+  // const orderpurchase = () => {
+  //   alert("Your order has been placed");
+  // };
 
   return (
     <>
@@ -164,6 +169,7 @@ const PlaceOrderScreen = ({ history }) => {
                   className="btn-block"
                   disabled={cart.cartitems}
                   onClick={placeOrderHandler}
+                  // onClick={orderpurchase}
                 >
                   Place Order
                 </Button>
