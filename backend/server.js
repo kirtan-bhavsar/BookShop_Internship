@@ -22,12 +22,18 @@ app.get("/", (req, res) => {
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
-
+// for 10.6
+app.get("/api/config/paypal", (req, res) => {
+  res.send(
+    "AfzdgJ1lLi3m54PmkwIcTpjOsUxm-qBa9Ng2pOXZ3h4KdPDUrNK9MP6CfbX9yt0AMSAQuKcJrB51_K1x"
+  );
+});
+// ends 10.6
 app.use(notFound);
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
 app.listen(
   PORT,
