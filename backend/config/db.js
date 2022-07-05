@@ -30,3 +30,5 @@ export default connectDB;
 // git add .
 // git commit -m "message"
 //git push
+
+// git check for cloned repository
