@@ -15,6 +15,7 @@ import OrderScreen from "./screens/OrderScreen.js";
 
 import "./App.css";
 import LoginScreen from "./screens/LoginScreen.js";
+import UserListScreen from "./screens/UserListScreen.js"; //if 11.2 crashes delete this and line 36
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/register" component={RegisterScreen} />
           <Route path="/profile" component={ProfileScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
+          <Route path="/admin/userlist" component={UserListScreen} />
         </Container>
       </main>
       <Footer />

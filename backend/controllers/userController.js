@@ -104,4 +104,14 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, getUserProfile, registerUser, updateUserProfile };
+//starts 11.1
+//@description Get all users
+//@ route GET /api/users
+// //@access Private/Admin
+const getUsers = asyncHandler(async (req, res) => {
+  const users = await User.find({});
+  res.json(users);
+});
+//ends 11.1
+
+export { authUser, getUserProfile, registerUser, updateUserProfile, getUsers }; // getUsers exported for 11.1
