@@ -5,7 +5,7 @@ import { Table, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message.js";
 import Loader from "../components/Loader.js";
-import { listUsers } from "../actions/userActions.js";
+import { listUsers, deleteUser } from "../actions/userActions.js"; //if 11.4 fails then delete the deleteUser
 
 const UserListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -18,6 +18,11 @@ const UserListScreen = ({ history }) => {
   const { userInfo } = userLogin;
   //ends 11.3
 
+  //starts 11.4
+  const userDelete = useSelector((state) => state.userDelete);
+  const { success: successDelete } = userDelete;
+  //ends 11.4
+
   // useEffect(() => { //if 11.3 fails uncomment this and delete the next useEffect
   //   dispatch(listUsers());
   // }, [dispatch]);
@@ -29,11 +34,13 @@ const UserListScreen = ({ history }) => {
     } else {
       history.push("/login");
     }
-  }, [dispatch, history]);
+  }, [dispatch, history, successDelete]);
   //ends 11.3
 
   const deleteHandler = (id) => {
-    console.log("delete");
+    if (window.confirm("Are You Sure")) {
+      dispatch(deleteUser(id));
+    }
   };
 
   return (

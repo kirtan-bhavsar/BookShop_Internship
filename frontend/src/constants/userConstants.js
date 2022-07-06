@@ -24,3 +24,9 @@ export const USER_LIST_FAIL = "USER_LIST_FAIL";
 export const USER_LIST_RESET = "USER_LIST_RESET";
 //ends 11.3
 //ends 11.2
+
+//starts 11.4
+export const USER_DELETE_REQUEST = "USER_DELETE_REQUEST";
+export const USER_DELETE_SUCCESS = "USER_DELETE_SUCCESS";
+export const USER_DELETE_FAIL = "USER_DELETE_FAIL";
+//for 11.4

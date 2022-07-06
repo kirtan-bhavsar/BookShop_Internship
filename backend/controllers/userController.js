@@ -114,4 +114,29 @@ const getUsers = asyncHandler(async (req, res) => {
 });
 //ends 11.1
 
-export { authUser, getUserProfile, registerUser, updateUserProfile, getUsers }; // getUsers exported for 11.1
+//starts 11.4
+//@description Delete a user
+//@ route DELETE /api/users/:id
+// //@access Private/Admin
+const deleteUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    await user.remove();
+    res.json({ message: "User removed" });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+//ends 11.4
+
+export {
+  authUser,
+  getUserProfile,
+  registerUser,
+  updateUserProfile,
+  getUsers,
+  deleteUser,
+}; // getUsers exported for 11.1
+// if 11.4 does not work then delete deleteUser

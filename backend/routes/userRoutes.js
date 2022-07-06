@@ -6,6 +6,7 @@ import {
   registerUser,
   updateUserProfile,
   getUsers, //for 11.1
+  deleteUser, //for 11.4
 } from "../controllers/userController.js";
 import { protect, admin } from "../middleware/authMiddleware.js";
 
@@ -16,5 +17,6 @@ router
   .put(protect, updateUserProfile);
 // router.route("/").post(registerUser); // in case 11.1 not working delete the below line and uncomment this
 router.route("/").post(registerUser).get(protect, admin, getUsers);
+router.route("/:id").delete(protect, admin, deleteUser); //for 11.4
 
 export default router;
