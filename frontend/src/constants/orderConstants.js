@@ -12,3 +12,9 @@ export const ORDER_PAY_SUCCESS = "ORDER_PAY_SUCCESS";
 export const ORDER_PAY_FAIL = "ORDER_PAY_FAIL";
 export const ORDER_PAY_RESET = "ORDER_PAY_RESET";
 //ends 10.5
+
+//for 10.7
+export const ORDER_LIST_MY_REQUEST = "ORDER_LIST_MY_REQUEST";
+export const ORDER_LIST_MY_SUCCESS = "ORDER_LIST_MY_SUCCESS";
+export const ORDER_LIST_MY_FAIL = "ORDER_LIST_MY_FAIL";
+//ends 10.7
