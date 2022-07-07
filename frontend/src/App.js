@@ -16,6 +16,7 @@ import OrderScreen from "./screens/OrderScreen.js";
 import "./App.css";
 import LoginScreen from "./screens/LoginScreen.js";
 import UserListScreen from "./screens/UserListScreen.js"; //if 11.2 crashes delete this and line 36
+import ProductListScreen from "./screens/ProductListScreen.js"; // for 12.1
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/profile" component={ProfileScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
           <Route path="/admin/userlist" component={UserListScreen} />
+          <Route path="/admin/productlist" component={ProductListScreen} />
         </Container>
       </main>
       <Footer />
