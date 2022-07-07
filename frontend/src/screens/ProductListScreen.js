@@ -6,7 +6,12 @@ import { Table, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message.js";
 import Loader from "../components/Loader.js";
-import { listProducts, deleteProduct } from "../actions/productActions.js"; //if 12.2 fails then delete deleteProduct
+import {
+  listProducts,
+  deleteProduct,
+  createProduct,
+} from "../actions/productActions.js"; //if 12.2 fails then delete deleteProduct
+import { PRODUCT_CREATE_RESET } from "../constants/productConstanst.js";
 
 const ProductListScreen = ({ history, match }) => {
   const dispatch = useDispatch();
@@ -23,6 +28,16 @@ const ProductListScreen = ({ history, match }) => {
   } = productDelete;
   //ends 12.2
 
+  //starts 12.4
+  const productCreate = useSelector((state) => state.productCreate);
+  const {
+    loading: loadingCreate,
+    error: errorCreate,
+    success: successCreate,
+    product: createdProduct,
+  } = productCreate;
+  //ends 12.4
+
   //starts 11.3
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -34,12 +49,31 @@ const ProductListScreen = ({ history, match }) => {
 
   //starts 11.3
   useEffect(() => {
-    if (userInfo && userInfo.isAdmin) {
-      dispatch(listProducts());
-    } else {
+    dispatch({ type: PRODUCT_CREATE_RESET });
+
+    // if (userInfo && userInfo.isAdmin) {
+    //   dispatch(listProducts());
+    // } else {
+    //   history.push("/login");
+    // } //if 12.4 fails uncomment this and delete the next written
+
+    if (!userInfo.isAdmin) {
       history.push("/login");
     }
-  }, [dispatch, history, userInfo, successDelete]);
+
+    if (successCreate) {
+      history.push(`/admin/product/${createdProduct._id}/edit`);
+    } else {
+      dispatch(listProducts());
+    }
+  }, [
+    dispatch,
+    history,
+    userInfo,
+    successDelete,
+    successCreate,
+    createProduct,
+  ]);
   //ends 11.3
 
   const deleteHandler = (id) => {
@@ -48,8 +82,8 @@ const ProductListScreen = ({ history, match }) => {
     }
   };
 
-  const createProductHandler = (product) => {
-    console.log("product is listed");
+  const createProductHandler = () => {
+    dispatch(createProduct());
   };
 
   return (
@@ -66,6 +100,10 @@ const ProductListScreen = ({ history, match }) => {
       </Row>
       {loadingDelete && <Loader></Loader>}
       {errorDelete && <Message variant="danger">{errorDelete}</Message>}
+      {/* for 12.4 */}
+      {loadingCreate && <Loader></Loader>}
+      {errorCreate && <Message variant="danger">{errorCreate}</Message>}
+      {/* ends 12.4 */}
       {loading ? (
         <Loader></Loader>
       ) : error ? (
