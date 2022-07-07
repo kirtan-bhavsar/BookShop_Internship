@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import colors from "colors";
-
+// For Final_4
 const connectDB = async () => {
   try {
     console.log(process.env.MONGO_URI);
