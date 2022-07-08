@@ -26,5 +26,5 @@ h2{
 
 [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
     cursor: pointer;
-    margin: 10px 0px;
+    margin: 0px;
 }

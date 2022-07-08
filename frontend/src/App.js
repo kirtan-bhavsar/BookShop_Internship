@@ -38,6 +38,8 @@ const App = () => {
           <Route path="/admin/userlist" component={UserListScreen} />
           <Route path="/admin/productlist" component={ProductListScreen} />
           <Route path="/admin/product/:id/edit" component={ProductEditScreen} />
+          <Route path="/search/:keyword" component={HomeScreen} exact />
+          {/* if search fails delete number 14 */}
         </Container>
       </main>
       <Footer />

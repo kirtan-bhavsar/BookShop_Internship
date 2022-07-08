@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.search-setting{
+  display: flex;
+}
+
+.search-setting-2{
+  margin: 100px;
+}
+
+for_search{
+  cursor: pointer;
+  margin: -4px 0;
+}
